@@ -43,10 +43,13 @@ public class AllForOneController : ControllerBase
     }
 
     [HttpGet]
-    [Route("MiniCh4/{num1}/{num2}")]
+    [Route("MiniCh4/{userNum1}/{userNum2}")]
 
-    public string GreaterOrLess(int num1, int num2)
+    public string GreaterOrLess(string userNum1, string userNum2)
     {
+
+        if(!int.TryParse(userNum1, out int num1)) return "Not Valid Number";
+        if(!int.TryParse(userNum2, out int num2)) return "Not Valid Number";
         if (num1 > num2) return $"{num1} is greater than {num2}";
         if (num1 < num2) return $"{num2} is greater than {num1}";
         else return $"{num1} is equal to {num2}";
@@ -62,10 +65,11 @@ public class AllForOneController : ControllerBase
     }
 
     [HttpGet]
-    [Route("MiniCh6/{num}")]
+    [Route("MiniCh6/{userNum}")]
 
-    public string OddOrEven(int num)
+    public string OddOrEven(string userNum)
     {
+        if(!int.TryParse(userNum, out int num)) return "Not Valid Number";
         if (num % 2 == 0) return $"{num} is even"; else return $"{num} is odd";
     }
 
