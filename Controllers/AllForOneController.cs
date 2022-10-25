@@ -25,11 +25,13 @@ public class AllForOneController : ControllerBase
     }
 
     [HttpGet]
-    [Route("MiniCh2/{num1}/{num2}")]
+    [Route("MiniCh2/{userNum1}/{userNum2}")]
 
-    public int Adding(int num1, int num2)
+    public string Adding(string userNum1, string userNum2)
     {
-        return num1 + num2;
+        if(!int.TryParse(userNum1, out int num1)) return "Not Valid Number";
+        if(!int.TryParse(userNum2, out int num2)) return "Not Valid Number";
+        return Convert.ToString(num1 + num2);
     }
 
     [HttpGet]
