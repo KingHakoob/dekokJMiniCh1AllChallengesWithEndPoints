@@ -51,11 +51,12 @@ public class AllForOneController : ControllerBase
     }
 
     [HttpGet]
-    [Route("MiniCh5")]
+    [Route("MiniCh5/{name}/{adj1}/{noun1}/{verb1}/{nounPlural}/{noun2}/{place}/{verb2}/{vehicle}/{adj2}/{noun3}")]
 
-    public string MadLib()
+    public string MadLib(string name, string adj1, string noun1, string verb1, string nounPlural, string noun2, string place, string verb2, string vehicle, string adj2, string noun3)
     {
-        return "Who can tell me what a happy lib is?(MadLib)";
+
+        return $"{name} is a {adj1}  {noun1}. He teaches {verb1} to {nounPlural} who want to learn how. One day his pet {noun2} asks if he wants to go to the {place}. He {verb2} into his {vehicle} and blasts off. Once he gets to the {place}, he gets out of his {vehicle}, and says \"Wow, this place looks like a {adj2} cheese {noun3}.\"";
     }
 
     [HttpGet]
